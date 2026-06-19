@@ -47,6 +47,15 @@ export interface PaginaInicio {
   fotoPortadaUrl: string;
 }
 
+export interface Parametro {
+  id: number;
+  descripcion: string;
+  clave: string;
+  valor1: string;
+  valor2?: string;
+  grupo: number;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -99,5 +108,13 @@ export class ApiService {
   // Inicio
   getInicio(): Observable<PaginaInicio> {
     return this.http.get<PaginaInicio>(`${this.apiUrl}/inicio`);
+  }
+
+  // Parámetros
+  getParametros(grupo?: number, clave?: string): Observable<Parametro[]> {
+    const params: any = {};
+    if (grupo) params.grupo = grupo;
+    if (clave) params.clave = clave;
+    return this.http.get<Parametro[]>(`${this.apiUrl}/parametros`, { params });
   }
 }

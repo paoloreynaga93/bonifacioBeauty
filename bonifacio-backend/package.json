@@ -5,7 +5,10 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "node src/index.js"
+    "dev": "node src/index.js",
+    "tunnel": "ssh -L 5432:localhost:5432 root@185.172.57.246 -N",
+    "start:tunnel": "start cmd /k \"ssh -L 5432:localhost:5432 root@185.172.57.246 -N\" && node src/index.js",
+    "test:db": "node -e \"const pool = require('./config/db'); pool.query('SELECT NOW()').then(res => console.log('Conexión exitosa:', res.rows[0])).catch(err => console.error('Error:', err)).finally(() => pool.end());\""
   },
   "keywords": [],
   "author": "",

@@ -4,10 +4,10 @@ const { Pool } = require('pg');
 const pool = new Pool({
   host: process.env.DB_HOST || 'localhost',
   port: process.env.DB_PORT || 5432,
-  database: process.env.DB_NAME || 'bonifacio_bd',
-  user: process.env.DB_USER || 'postgres',
-  password: process.env.DB_PASSWORD || 'postgres',
-  schema: process.env.DB_SCHEMA || 'public'
+  database: process.env.DB_NAME || 'bonifacio_db',
+  user: process.env.DB_USER || 'bonifacio_app',
+  password: process.env.DB_PASSWORD || 'Bonifacio2026@',
+  schema: process.env.DB_SCHEMA || 'bonifacio'
 });
 
 module.exports = pool;
