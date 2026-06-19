@@ -1,0 +1,21 @@
+<section class="servicios-page">
+  <div class="container">
+    <div class="page-header">
+      <span class="page-eyebrow">Catálogo completo</span>
+      <h1 class="page-title">Nuestros Servicios</h1>
+      <p class="page-subtitle">Tratamientos profesionales para tu belleza integral</p>
+    </div>
+
+    <div class="categorias-grid">
+      <div *ngFor="let categoria of categorias" class="categoria-section">
+        <div class="categoria-header">
+          <div class="categoria-icon">✨</div>
+          <h2 class="categoria-title">{{ categoria.nombre }}</h2>
+        </div>
+        <div class="servicios-list">
+          <app-servicio-card *ngFor="let servicio of categoria.servicios" [servicio]="servicio"></app-servicio-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

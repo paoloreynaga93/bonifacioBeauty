@@ -1,0 +1,53 @@
+<section class="ubicacion-page">
+  <div class="container">
+    <h1 class="page-title">Encuéntranos</h1>
+    
+    <div class="ubicacion-content">
+      <div class="contact-card">
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div class="contact-info">
+            <h3 class="contact-label">Dirección</h3>
+            <p class="contact-value">{{ contacto?.direccion || 'Via della Bellezza 123, Milano, Italia' }}</p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div class="contact-info">
+            <h3 class="contact-label">Teléfono</h3>
+            <p class="contact-value">{{ contacto?.telefono || '+39 02 1234 5678' }}</p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div class="contact-info">
+            <h3 class="contact-label">Email</h3>
+            <p class="contact-value">{{ contacto?.email || 'info@bonifaciobeauty.com' }}</p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon">🕐</div>
+          <div class="contact-info">
+            <h3 class="contact-label">Horario</h3>
+            <p class="contact-value">{{ contacto?.horario || 'Lunes - Viernes: 9:00 - 19:00\nSábado: 9:00 - 18:00\nDomingo: Cerrado' }}</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2797.123456789!2d9.123456789!3d45.123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDXCsDA3JzI0LjUiTiA5wrAwNycyNC40IkU!5e0!3m2!1sit!2sit!4v1234567890"
+          width="100%" 
+          height="450" 
+          style="border:0; border-radius: 12px;" 
+          allowfullscreen="" 
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>

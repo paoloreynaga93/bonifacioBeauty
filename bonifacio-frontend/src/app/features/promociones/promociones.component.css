@@ -1,0 +1,40 @@
+.promociones-page {
+  padding: 120px 0 80px;
+  background: var(--light-bg);
+  min-height: 100vh;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 15px;
+}
+
+.page-subtitle {
+  text-align: center;
+  font-size: 20px;
+  color: var(--text-light);
+  margin-bottom: 50px;
+}
+
+.promociones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 36px;
+  }
+
+  .page-subtitle {
+    font-size: 18px;
+  }
+
+  .promociones-grid {
+    grid-template-columns: 1fr;
+  }
+}

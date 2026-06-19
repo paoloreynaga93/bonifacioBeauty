@@ -1,0 +1,9 @@
+<section class="promociones-page">
+  <div class="container">
+    <h1 class="page-title">Promociones Especiales</h1>
+    <p class="page-subtitle">Aprovecha nuestras ofertas exclusivas</p>
+    <div class="promociones-grid">
+      <app-promocion-card *ngFor="let promocion of promociones" [promocion]="promocion"></app-promocion-card>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,47 @@
+<section class="servicio-detalle-page">
+  <div class="hero-banner">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">{{ categoria?.nombre || 'Servicio' }}</h1>
+      <p class="hero-subtitle">{{ categoria?.descripcion || 'Tratamientos exclusivos' }}</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="servicio-grid" *ngIf="servicio">
+      <div class="servicio-cards">
+        <div class="servicio-card">
+          <h3 class="card-title">{{ servicio.nombre }}</h3>
+          <div class="card-details">
+            <div class="detail-item">
+              <span class="detail-icon">⏱️</span>
+              <span class="detail-text">{{ servicio.duracionMin }} minutos</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-icon">💰</span>
+              <span class="detail-text">€{{ servicio.precio }}</span>
+            </div>
+          </div>
+          <p class="card-description">{{ servicio.descripcion }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="otros-servicios" *ngIf="serviciosRelacionados.length > 0">
+      <h2 class="section-title">Otros Servicios</h2>
+      <div class="servicios-nav">
+        <div class="nav-item" *ngFor="let servicio of serviciosRelacionados" [routerLink]="['/servicio', servicio.id]">
+          <span class="nav-icon">💆</span>
+          <span class="nav-text">{{ servicio.nombre }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="whatsapp-banner">
+      <button class="whatsapp-cta" (click)="openWhatsApp()">
+        <span class="cta-icon">📱</span>
+        <span class="cta-text">Reservar por WhatsApp</span>
+      </button>
+    </div>
+  </div>
+</section>

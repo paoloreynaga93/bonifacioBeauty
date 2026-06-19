@@ -1,0 +1,162 @@
+﻿<section id="hero" class="hero" [style.background-image]="getHeroBackground()">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Milano, Italia · Belleza &amp; Bienestar</span>
+    <h1 class="hero-title">{{ paginaInicio?.tituloPrincipal || 'BonifacioBeauty' }}</h1>
+    <p class="hero-subtitle">{{ paginaInicio?.subtitulo || 'Tu belleza es nuestra pasión. Tratamientos profesionales que realzan tu belleza natural.' }}</p>
+    <div class="hero-actions">
+      <button class="hero-btn-primary" routerLink="/servicios">Descubre Nuestros Servicios</button>
+      <button class="hero-btn-ghost" (click)="scrollToContacto()">Reservar Cita</button>
+    </div>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <span class="stat-number">10+</span>
+        <span class="stat-label">Años de experiencia</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">5k+</span>
+        <span class="stat-label">Clientes felices</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">30+</span>
+        <span class="stat-label">Tratamientos</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">100%</span>
+        <span class="stat-label">Satisfacción garantizada</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="promociones" class="promociones-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Ofertas Exclusivas</span>
+      <h2 class="section-title">Promociones Especiales</h2>
+      <p class="section-subtitle">Aprovecha nuestras ofertas exclusivas y cuida tu belleza al mejor precio</p>
+    </div>
+    <div class="promociones-grid">
+      <app-promocion-card *ngFor="let promocion of promociones" [promocion]="promocion"></app-promocion-card>
+    </div>
+  </div>
+</section>
+
+<section class="servicios-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Lo que ofrecemos</span>
+      <h2 class="section-title">Nuestros Servicios</h2>
+      <p class="section-subtitle">Tratamientos profesionales para tu belleza integral</p>
+    </div>
+    <div class="categorias-grid">
+      <article *ngFor="let categoria of categorias" class="categoria-card" [routerLink]="['/servicios']">
+        <div class="cat-icon">✨</div>
+        <h3 class="categoria-title">{{ categoria.nombre }}</h3>
+        <ul class="categoria-list">
+          <li *ngFor="let servicio of (categoria.servicios || []).slice(0, 3)">{{ servicio.nombre }}</li>
+        </ul>
+        <p class="categoria-more" *ngIf="(categoria.servicios || []).length > 3">
+          +{{ (categoria.servicios || []).length - 3 }} tratamientos más
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="historia" class="historia-section">
+  <div class="container historia-content">
+    <div class="historia-text">
+      <span class="section-eyebrow">Nuestra historia</span>
+      <h2 class="section-title section-title-left">Belleza con Pasión desde 2014</h2>
+      <p>
+        Desde hace más de una década, BonifacioBeauty ha sido el refugio de belleza y bienestar
+        para miles de clientes que confían en nuestra experiencia y profesionalismo en el corazón de Milano.
+      </p>
+      <p>
+        Nuestro equipo de especialistas se capacita constantemente en las últimas técnicas y tendencias
+        internacionales para ofrecerte los mejores tratamientos con la más alta calidad.
+      </p>
+      <p>
+        Creemos que cada persona es única — por eso personalizamos cada tratamiento para realzar tu
+        belleza natural y hacerte sentir especial.
+      </p>
+      <div class="historia-badges">
+        <div class="historia-badge-item">Pasión por la Belleza</div>
+        <div class="historia-badge-item">Profesionales Certificados</div>
+        <div class="historia-badge-item">Clientes Felices</div>
+      </div>
+    </div>
+    <div class="historia-image-wrap">
+      <img
+        src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=900"
+        alt="Salón BonifacioBeauty"
+        class="historia-image"
+      />
+      <div class="experience-badge">10+ Años<br>de Experiencia</div>
+    </div>
+  </div>
+</section>
+
+<section id="encuentranos" class="encuentranos-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Visítanos</span>
+      <h2 class="section-title">Encuéntranos</h2>
+      <p class="section-subtitle">Estamos aquí para ti</p>
+    </div>
+    <div class="ubicacion-content">
+      <div class="contact-card">
+        <h3 class="contact-card-title">Información de Contacto</h3>
+
+        <div class="contact-item">
+          <div class="contact-item-icon">&#128205;</div>
+          <div>
+            <h4>Dirección</h4>
+            <p>{{ contacto?.direccion || 'Via della Bellezza 123, Milano, Italia' }}</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item-icon">&#128222;</div>
+          <div>
+            <h4>Teléfono</h4>
+            <p>{{ contacto?.telefono || '+39 02 1234 5678' }}</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item-icon">✉️</div>
+          <div>
+            <h4>Email</h4>
+            <p>{{ contacto?.email || 'info@bonifaciobeauty.com' }}</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item-icon">&#128336;</div>
+          <div>
+            <h4>Horario</h4>
+            <p class="contact-schedule">{{ contacto?.horario || 'Lunes - Viernes: 9:00 - 19:00\nSábado: 9:00 - 18:00\nDomingo: Cerrado' }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2797.123456789!2d9.123456789!3d45.123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDXCsDA3JzI0LjUiTiA5wrAwNycyNC40IkU!5e0!3m2!1sit!2sit!4v1234567890"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Mapa BonifacioBeauty"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+

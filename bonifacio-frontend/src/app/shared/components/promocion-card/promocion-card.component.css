@@ -1,0 +1,70 @@
+.promocion-card {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition), box-shadow var(--transition);
+  cursor: pointer;
+}
+
+.promocion-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: var(--grad-brand);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(233,30,99,0.4);
+}
+
+.card-image {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.card-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.35) 0%, transparent 55%);
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.promocion-card:hover .card-image img { transform: scale(1.06); }
+
+.card-content {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.card-subtitle {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.5;
+}

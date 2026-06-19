@@ -1,0 +1,75 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model PaginaInicio {
+  id              Int      @id @default(autoincrement())
+  tituloPrincipal String
+  subtitulo       String
+  fotoPortadaUrl  String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Categoria {
+  id          Int         @id @default(autoincrement())
+  nombre      String      @unique
+  descripcion String?
+  icono       String?
+  fotoUrl     String?
+  servicios   Servicio[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+}
+
+model Servicio {
+  id          Int      @id @default(autoincrement())
+  nombre      String
+  descripcion String
+  precio      Float
+  duracionMin Int
+  categoriaId Int
+  categoria   Categoria @relation(fields: [categoriaId], references: [id])
+  fotoUrl     String?
+  activo      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Promocion {
+  id          Int      @id @default(autoincrement())
+  titulo      String
+  descripcion String
+  descuento   Int
+  fotoUrl     String
+  activo      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Contacto {
+  id        Int      @id @default(autoincrement())
+  direccion String
+  telefono  String
+  email     String
+  horario   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Parametro {
+  id          Int      @id @default(autoincrement())
+  descripcion String
+  clave       String   @unique
+  valor1      String   @db.Text
+  valor2      String   @db.Text
+  grupo       String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

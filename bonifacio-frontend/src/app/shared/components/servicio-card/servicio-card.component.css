@@ -1,0 +1,87 @@
+.servicio-card {
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  padding: 28px 24px;
+  border: 1px solid var(--border);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.servicio-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--grad-brand);
+  transform: scaleX(0);
+  transition: transform var(--transition);
+  transform-origin: left;
+}
+
+.servicio-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: transparent;
+}
+
+.servicio-card:hover::before { transform: scaleX(1); }
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--rose-light);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10px;
+  font-family: 'Inter', sans-serif;
+}
+
+.card-treatments {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card-treatments li {
+  font-size: 13px;
+  color: var(--muted);
+  padding-left: 12px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.card-treatments li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 5px;
+  height: 5px;
+  background: var(--rose);
+  border-radius: 50%;
+}
+
+.card-more {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--rose);
+  margin: 0;
+  letter-spacing: 0.01em;
+}

@@ -1,0 +1,138 @@
+.nosotros-page {
+  padding: 120px 0 80px;
+  background: var(--white);
+  min-height: 100vh;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 60px;
+}
+
+.nosotros-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.nosotros-text {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.intro-text {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--text-light);
+  margin: 0;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.feature-icon {
+  font-size: 48px;
+  flex-shrink: 0;
+}
+
+.feature-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin: 0 0 5px 0;
+}
+
+.feature-description {
+  font-size: 16px;
+  color: var(--text-light);
+  margin: 0;
+}
+
+.nosotros-image {
+  position: relative;
+}
+
+.image-container {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.experience-badge {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  background: var(--primary-pink);
+  color: white;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(233, 30, 99, 0.4);
+}
+
+.badge-text {
+  font-size: 18px;
+  font-weight: 600;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 36px;
+  }
+
+  .nosotros-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .intro-text {
+    font-size: 16px;
+  }
+
+  .features-grid {
+    gap: 20px;
+  }
+
+  .feature-icon {
+    font-size: 36px;
+  }
+
+  .feature-title {
+    font-size: 18px;
+  }
+
+  .feature-description {
+    font-size: 14px;
+  }
+
+  .experience-badge {
+    bottom: 20px;
+    right: 20px;
+    padding: 15px 20px;
+  }
+
+  .badge-text {
+    font-size: 16px;
+  }
+}

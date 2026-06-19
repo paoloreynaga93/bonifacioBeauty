@@ -1,0 +1,10 @@
+<div class="promocion-card">
+  <div class="badge">{{ promocion.descuento }}% OFF</div>
+  <div class="card-image">
+    <img [src]="promocion.fotoUrl" [alt]="promocion.titulo" />
+  </div>
+  <div class="card-content">
+    <h3 class="card-title">{{ promocion.titulo }}</h3>
+    <p class="card-subtitle">{{ promocion.descripcion }}</p>
+  </div>
+</div>

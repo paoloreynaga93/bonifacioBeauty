@@ -1,0 +1,11 @@
+<div class="servicio-card">
+  <div class="card-icon">
+    <span *ngIf="servicio.categoria.icono">{{ servicio.categoria.icono }}</span>
+    <span *ngIf="!servicio.categoria.icono">💆</span>
+  </div>
+  <h3 class="card-title">{{ servicio.nombre }}</h3>
+  <ul class="card-treatments">
+    <li>{{ servicio.descripcion }}</li>
+  </ul>
+  <p class="card-more">+2 tratamientos más</p>
+</div>
