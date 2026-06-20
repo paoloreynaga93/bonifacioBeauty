@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const pool = require('../config/db');
+const pool = require('../../config/db');
 
 // Obtener todos los parámetros o filtrar por grupo o clave usando SP
 router.get('/', async (req, res) => {
@@ -16,7 +16,8 @@ router.get('/', async (req, res) => {
     res.json(result.rows);
   } catch (error) {
     console.error('Error al obtener parámetros:', error);
-    res.status(500).json({ error: 'Error al obtener parámetros' });
+    console.error('Detalle del error:', error.message);
+    res.status(500).json({ error: 'Error al obtener parámetros', detail: error.message });
   }
 });
 

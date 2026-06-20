@@ -11,6 +11,7 @@ export class InicioComponent implements OnInit {
   promociones: Promocion[] = [];
   categorias: Categoria[] = [];
   contacto: Contacto | null = null;
+  nosotrosText: string = '';
 
   constructor(private apiService: ApiService) { }
 
@@ -19,6 +20,7 @@ export class InicioComponent implements OnInit {
     this.loadPromociones();
     this.loadCategorias();
     this.loadContacto();
+    this.loadNosotrosText();
   }
 
   loadInicioData() {
@@ -46,6 +48,19 @@ export class InicioComponent implements OnInit {
     this.apiService.getContacto().subscribe({
       next: (data) => this.contacto = data,
       error: (err) => console.error('Error loading contacto:', err)
+    });
+  }
+
+  loadNosotrosText() {
+    this.apiService.getParametros(1, 'nosotros').subscribe({
+      next: (parametros) => {
+        if (parametros && parametros.length > 0) {
+          this.nosotrosText = parametros[0].valor1;
+        }
+      },
+      error: (error) => {
+        console.error('Error al obtener parámetros:', error);
+      }
     });
   }
 
